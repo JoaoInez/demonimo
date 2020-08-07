@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { readingTime as readingTimeHelper } from "@tryghost/helpers";
+import { FaStar } from "react-icons/fa";
 import styles from "../../styles/PostCard.module.scss";
 
 const PostCard = ({ post }) => {
   const url = `/${post.slug}/`;
-  const readingTime = readingTimeHelper(post);
-  console.log(post);
+  const readingTime = readingTimeHelper(post).replace("read", "de leitura");
 
   return (
     <article
@@ -15,6 +15,11 @@ const PostCard = ({ post }) => {
         !post.feature_image ? styles.noImage : ""
       }`}
     >
+      {post.featured && (
+        <div className={styles.featured}>
+          <FaStar />
+        </div>
+      )}
       {post.feature_image && (
         <header
           className={styles.postHeader}
@@ -26,17 +31,17 @@ const PostCard = ({ post }) => {
         </header>
       )}
       <section className={styles.postBody}>
-        {post.tags.length
-          ? post.tags.map((tag) => (
+        {post.tags.length ? (
+          <div className={styles.postTags}>
+            {post.tags.map((tag) => (
               <Link to={`/tag/${tag.slug}/`} key={tag.name}>
                 {tag.name}
               </Link>
-            ))
-          : null}
+            ))}
+          </div>
+        ) : null}
         <Link to={url} className={styles.postContent}>
-          {post.featured && <span>Featured</span>}
           <h2 className="post-card-title">{post.title}</h2>
-          {post.excerpt}
         </Link>
       </section>
       <footer className={styles.postFooter}>
@@ -74,13 +79,12 @@ PostCard.propTypes = {
     title: PropTypes.string.isRequired,
     feature_image: PropTypes.string,
     featured: PropTypes.bool,
-    // tags: PropTypes.arrayOf(
-    //   PropTypes.shape({
-    //     name: PropTypes.string,
-    //   })
-    // ),
-    tags: PropTypes.any,
-    excerpt: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        slug: PropTypes.string,
+      })
+    ),
     primary_author: PropTypes.shape({
       name: PropTypes.string.isRequired,
       profile_image: PropTypes.string,

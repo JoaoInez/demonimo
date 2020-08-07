@@ -1,0 +1,46 @@
+.navbar {
+  top: 0;
+  background-color: #fff;
+  padding: 20px 30px;
+  font-size: 1.8rem;
+
+  .navbarItem {
+    margin-right: 30px;
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: all 0.12s cubic-bezier(0.02, 0.01, 0.5, 1);
+
+    &:first-child {
+      font-weight: bold;
+      color: var(--color-base);
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.footer {
+  background-color: var(--color-base);
+  color: #fff;
+  padding: 40px 0;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      margin: 10px 0;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      &:not(:last-of-type) a {
+        margin: 0 10px;
+      }
+    }
+  }
+}
