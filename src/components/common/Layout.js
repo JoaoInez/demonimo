@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link, StaticQuery, graphql } from "gatsby";
-import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 import { Navigation } from ".";
 // import config from "../../utils/siteConfig";
@@ -54,7 +54,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           >
             <div className="container">
               {isHome ? (
-                <div className="site-banner">
+                <div className={`site-banner ${styles.banner}`}>
                   <h1 className="site-banner-title">{site.title}</h1>
                   <p className="site-banner-desc">{site.description}</p>
                 </div>
@@ -62,7 +62,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
             </div>
           </header>
 
-          <main className="site-main">
+          <main className={`site-main ${styles.main}`}>
             {/* All the main content gets inserted here, index.js, post.js */}
             {children}
           </main>
@@ -99,6 +99,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <FaFacebook />
                   </a>
                 )}
+                <a
+                  href="https://www.instagram.com/demonimo/"
+                  className="site-nav-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram />
+                </a>
               </div>
               <div>
                 <Link to="/">{site.title}</Link> © 2020 &mdash; Published with{" "}

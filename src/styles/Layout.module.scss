@@ -3,6 +3,9 @@
   background-color: #fff;
   padding: 20px 30px;
   font-size: 1.8rem;
+  animation-name: fade-top;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.02, 0.01, 0.5, 1);
 
   .navbarItem {
     margin-right: 30px;
@@ -13,12 +16,29 @@
     &:first-child {
       font-weight: bold;
       color: var(--color-base);
+      font-family: var(--font-unifraktur);
+      font-size: 2.4rem;
     }
 
     &:hover {
       color: var(--color-primary);
     }
   }
+}
+
+.banner {
+  animation-name: fade-top;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.02, 0.01, 0.5, 1);
+}
+
+.main {
+  opacity: 0;
+  animation-name: fade-bottom;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.02, 0.01, 0.5, 1);
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
 }
 
 .footer {
@@ -42,5 +62,28 @@
         margin: 0 10px;
       }
     }
+  }
+}
+
+// TODO: make function for this
+@keyframes fade-top {
+  from {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-bottom {
+  from {
+    transform: translateY(10vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
