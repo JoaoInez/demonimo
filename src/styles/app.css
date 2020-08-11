@@ -20,6 +20,10 @@ what's here to work the way you'd like it to.
 /* ---------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@font-face {
+  font-family: "Hellvetica";
+  src: url("../fonts/Hellvetica.ttf") format("truetype");
+}
 
 :root {
   /* Colours */
@@ -40,6 +44,7 @@ what's here to work the way you'd like it to.
   --font-serif: Georgia, Times, serif;
   --font-mono: Menlo, Courier, monospace;
   --font-merriweather: "Merriweather", serif;
+  --font-hellvetica: "Hellvetica", sans-serif;
   --font-light: 100;
   --font-normal: 400;
   --font-bold: 700;
