@@ -554,13 +554,6 @@ h6 {
   background: #fff;
 }
 
-.post-feature-image img {
-  margin: 0 0 3vw;
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
-
 .content-body h1,
 .content-body h2,
 .content-body h3,
@@ -668,7 +661,7 @@ h6 {
 /* ---------------------------------------------------------- */
 
 .site-head {
-  padding: 20px 0;
+  padding: 4px 0;
   color: #fff;
   background: var(--color-base);
   background-position: center;

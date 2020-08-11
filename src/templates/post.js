@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 
 import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";
+import styles from "../styles/Post.module.scss";
 
 /**
  * Single post view (/:slug)
@@ -21,10 +22,14 @@ const Post = ({ data, location }) => {
       <Helmet>
         <style type="text/css">{`${post.codeinjection_styles}`}</style>
       </Helmet>
-      <Layout>
+      <Layout bodyClass={styles.main}>
         {post.feature_image ? (
-          <figure className="post-feature-image">
-            <img src={post.feature_image} alt={post.title} />
+          <figure>
+            <img
+              src={post.feature_image}
+              alt={post.title}
+              className={styles.featureImage}
+            />
           </figure>
         ) : null}
         <div className="container">
@@ -40,6 +45,30 @@ const Post = ({ data, location }) => {
             </section>
           </article>
         </div>
+        <Link
+          to={`/author/${post.primary_author.slug}/`}
+          className={styles.authorContainer}
+        >
+          <div>
+            {post.primary_author.profile_image ? (
+              <img
+                className={styles.authorImage}
+                src={post.primary_author.profile_image}
+                alt={post.primary_author.name}
+              />
+            ) : (
+              <img
+                className={styles.authorImage}
+                src="/images/icons/avatar.svg"
+                alt={post.primary_author.name}
+              />
+            )}
+            <div>
+              <p>{post.primary_author.name}</p>
+              {post.primary_author.bio && <p>{post.primary_author.bio}</p>}
+            </div>
+          </div>
+        </Link>
       </Layout>
     </>
   );
@@ -52,6 +81,12 @@ Post.propTypes = {
       title: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
+      primary_author: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        profile_image: PropTypes.string,
+        bio: PropTypes.string,
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,

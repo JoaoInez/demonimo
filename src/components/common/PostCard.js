@@ -17,6 +17,7 @@ const PostCard = ({ post }) => {
     >
       {post.featured && (
         <div className={styles.featured}>
+          <span>Em destaque</span>
           <FaStar />
         </div>
       )}
@@ -46,7 +47,7 @@ const PostCard = ({ post }) => {
       </section>
       <footer className={styles.postFooter}>
         <Link
-          to={`/author/${post.authors[0].slug}/`}
+          to={`/author/${post.primary_author.slug}/`}
           className={styles.postFooterLeft}
         >
           <div className={styles.postAvatar}>
@@ -88,8 +89,8 @@ PostCard.propTypes = {
     primary_author: PropTypes.shape({
       name: PropTypes.string.isRequired,
       profile_image: PropTypes.string,
+      slug: PropTypes.string.isRequired,
     }).isRequired,
-    authors: PropTypes.any,
   }).isRequired,
 };
 
