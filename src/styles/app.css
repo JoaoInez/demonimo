@@ -20,6 +20,8 @@ what's here to work the way you'd like it to.
 /* ---------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 @font-face {
   font-family: "Hellvetica";
   src: url("../fonts/Hellvetica.ttf") format("truetype");
@@ -45,6 +47,8 @@ what's here to work the way you'd like it to.
   --font-mono: Menlo, Courier, monospace;
   --font-merriweather: "Merriweather", serif;
   --font-hellvetica: "Hellvetica", sans-serif;
+  --font-dawning-of-a-new-day: "Dawning of a New Day", cursive;
+  --font-libre-baskerville: "Libre Baskerville", serif;
   --font-light: 100;
   --font-normal: 400;
   --font-bold: 700;
@@ -170,8 +174,7 @@ img {
 }
 html {
   box-sizing: border-box;
-  /* font-family: sans-serif; */
-  font-family: var(--font-merriweather);
+  font-family: var(--font-libre-baskerville);
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -322,9 +325,7 @@ html {
 body {
   overflow-x: hidden;
   color: #3c484e;
-  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
-  font-family: var(--font-merriweather);
+  font-family: var(--font-libre-baskerville);
   font-size: 1.5rem;
   line-height: 1.6em;
   font-weight: 400;
@@ -553,8 +554,7 @@ h6 {
 .content-body {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-merriweather);
-  /* font-family: var(--font-sans-serif); */
+  font-family: var(--font-libre-baskerville);
 }
 
 .post-full-content {
@@ -570,8 +570,7 @@ h6 {
 .content-body h4,
 .content-body h5,
 .content-body h6 {
-  font-family: var(--font-merriweather);
-  /* font-family: var(--font-sans-serif); */
+  font-family: var(--font-libre-baskerville);
 }
 
 .content-body h1 {
@@ -637,8 +636,7 @@ h6 {
   margin: 0.5em 0;
   padding: 1em 0 1.5em;
   border: 0;
-  /* font-family: Georgia, serif; */
-  font-family: var(--font-merriweather);
+  font-family: var(--font-libre-baskerville);
   color: var(--color-primary);
   font-style: italic;
   font-size: 3.2rem;
@@ -879,8 +877,7 @@ h6 {
   display: flex;
   min-height: 148px;
   color: var(--color-base);
-  /* font-family: var(--font-sans-serif); */
-  font-family: var(--font-merriweather);
+  font-family: var(--font-libre-baskerville);
   text-decoration: none;
   border-radius: 3px;
   box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
