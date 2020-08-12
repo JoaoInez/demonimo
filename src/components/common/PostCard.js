@@ -11,65 +11,60 @@ const PostCard = ({ post }) => {
 
   return (
     <article
-      className={`${styles.postCard} ${
-        !post.feature_image ? styles.noImage : ""
-      }`}
+      className={`${styles.card} ${!post.feature_image ? styles.noImage : ""}`}
+      style={
+        post.feature_image && {
+          backgroundImage: `url(${post.feature_image})`,
+        }
+      }
     >
-      {post.featured && (
-        <div className={styles.featured}>
-          <span>Em destaque</span>
-          <FaStar />
-        </div>
-      )}
-      {post.feature_image && (
-        <header
-          className={styles.postHeader}
-          style={{
-            backgroundImage: `url(${post.feature_image})`,
-          }}
-        >
-          <Link to={url} />
-        </header>
-      )}
-      <section className={styles.postBody}>
-        {post.tags.length ? (
-          <div className={styles.postTags}>
-            {post.tags.map((tag) => (
-              <Link to={`/tag/${tag.slug}/`} key={tag.name}>
-                {tag.name}
-              </Link>
-            ))}
+      <div className={styles.cardWrapper}>
+        {post.featured && (
+          <div className={styles.featured}>
+            <span>Em destaque</span>
+            <FaStar />
           </div>
-        ) : null}
-        <Link to={url} className={styles.postContent}>
-          <h2 className="post-card-title">{post.title}</h2>
-        </Link>
-      </section>
-      <footer className={styles.postFooter}>
-        <Link
-          to={`/author/${post.primary_author.slug}/`}
-          className={styles.postFooterLeft}
-        >
-          <div className={styles.postAvatar}>
-            {post.primary_author.profile_image ? (
-              <img
-                className={styles.authorImage}
-                src={post.primary_author.profile_image}
-                alt={post.primary_author.name}
-              />
-            ) : (
-              <img
-                src="/images/icons/avatar.svg"
-                alt={post.primary_author.name}
-              />
-            )}
+        )}
+        <section className={styles.body}>
+          {post.tags.length ? (
+            <div className={styles.tags}>
+              {post.tags.map((tag) => (
+                <Link to={`/tag/${tag.slug}/`} key={tag.name}>
+                  {tag.name}
+                </Link>
+              ))}
+            </div>
+          ) : null}
+          <Link to={url} className={styles.content}>
+            <h2 className="post-card-title">{post.title}</h2>
+          </Link>
+        </section>
+        <footer className={styles.footer}>
+          <Link
+            to={`/author/${post.primary_author.slug}/`}
+            className={styles.footerLeft}
+          >
+            <div className={styles.avatar}>
+              {post.primary_author.profile_image ? (
+                <img
+                  className={styles.authorImage}
+                  src={post.primary_author.profile_image}
+                  alt={post.primary_author.name}
+                />
+              ) : (
+                <img
+                  src="/images/icons/avatar.svg"
+                  alt={post.primary_author.name}
+                />
+              )}
+            </div>
+            <span>{post.primary_author.name}</span>
+          </Link>
+          <div className={styles.footerRight}>
+            <div>{readingTime}</div>
           </div>
-          <span>{post.primary_author.name}</span>
-        </Link>
-        <div className={styles.postFooterRight}>
-          <div>{readingTime}</div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </article>
   );
 };

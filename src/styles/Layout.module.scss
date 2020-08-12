@@ -3,9 +3,6 @@
   background-color: #fff;
   padding: 20px 30px;
   font-size: 1.8rem;
-  animation-name: fade-top;
-  animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.02, 0.01, 0.5, 1);
 
   .navbarItem {
     margin-right: 30px;
@@ -42,8 +39,8 @@
 }
 
 .footer {
-  background-color: var(--color-base);
-  color: #fff;
+  background-color: #e6e6e6;
+  color: var(--color-base);
   padding: 40px 0;
 
   & > div {

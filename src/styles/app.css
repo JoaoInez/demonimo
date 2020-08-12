@@ -16,6 +16,8 @@ what's here to work the way you'd like it to.
 - Pagination
 - Footer
 
+// TODO: Cleanup css, fonts, colors and variables
+
 /* Variables
 /* ---------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
@@ -36,7 +38,7 @@ what's here to work the way you'd like it to.
   --color-bg: #f5f5f5;
   --article-shadow-normal: 0 10px 10px rgba(0, 0, 0, 0.08);
   --article-shadow-hover: 0 4px 60px 0 rgba(0, 0, 0, 0.2);
-  --background-color: #fff;
+  --color-background: #0a0a0a;
 
   /* Fonts */
   --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -332,7 +334,7 @@ body {
   font-style: normal;
   letter-spacing: 0;
   text-rendering: optimizeLegibility;
-  background: #fff;
+  background: var(--color-background);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -473,7 +475,6 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  color: var(--color-base);
   line-height: 1.15;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -555,13 +556,14 @@ h6 {
   display: flex;
   flex-direction: column;
   font-family: var(--font-libre-baskerville);
+  color: #e6e6e6;
 }
 
 .post-full-content {
   padding-top: 4vw;
   max-width: 720px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--color-background);
 }
 
 .content-body h1,
@@ -571,6 +573,7 @@ h6 {
 .content-body h5,
 .content-body h6 {
   font-family: var(--font-libre-baskerville);
+  color: #e6e6e6;
 }
 
 .content-body h1 {
@@ -587,6 +590,7 @@ h6 {
 .content-title {
   margin: 0 0 0.8em;
   font-size: 5rem;
+  color: #fff;
 }
 @media (max-width: 500px) {
   .content-title {
@@ -671,7 +675,7 @@ h6 {
 /* ---------------------------------------------------------- */
 
 .site-head {
-  padding: 4px 0;
+  padding: 1px 0;
   color: #fff;
   background: var(--color-base);
   background-position: center;
@@ -740,6 +744,7 @@ h6 {
 @media (max-width: 680px) {
   .post-feed {
     grid-template-columns: 1fr;
+    grid-gap: 4vw;
   }
 
   .post-feed article:nth-child(6n - 5) {
@@ -847,8 +852,8 @@ h6 {
 .pagination a {
   display: inline-block;
   padding: 10px 15px;
-  border: var(--color-border) 1px solid;
-  color: var(--color-secondary);
+  color: var(--color-base);
+  background-color: #e6e6e6;
   text-decoration: none;
   font-size: 1.4rem;
   line-height: 1em;
@@ -861,7 +866,7 @@ h6 {
   width: 100px;
   margin-left: -50px;
   text-align: center;
-  color: var(--color-secondary);
+  color: #e6e6e6;
   font-size: 1.3rem;
 }
 

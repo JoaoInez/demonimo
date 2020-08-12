@@ -9,7 +9,7 @@
   }
 
   .authorContainer {
-    background-color: #eee;
+    background-color: var(--color-base);
     padding: 4vw;
     margin-top: 4vw;
     display: block;
@@ -35,6 +35,7 @@
 
       p {
         margin: 0;
+        color: #e6e6e6;
 
         &:first-child {
           font-weight: bold;
