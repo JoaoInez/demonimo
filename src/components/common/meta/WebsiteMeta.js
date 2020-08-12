@@ -93,6 +93,7 @@ const WebsiteMeta = ({
         {settings.twitter && (
           <meta name="twitter:creator" content={settings.twitter} />
         )}
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
         <script type="application/ld+json">
           {JSON.stringify(jsonLd, undefined, 4)}
         </script>
