@@ -6,9 +6,13 @@
 
   .navbarItem {
     margin-right: 30px;
-    color: var(--color-secondary);
+    color: var(--color-terciary);
     text-decoration: none;
     transition: all 0.12s cubic-bezier(0.02, 0.01, 0.5, 1);
+
+    &.active {
+      color: var(--color-primary);
+    }
 
     &:first-child {
       font-weight: bold;
@@ -39,7 +43,7 @@
 }
 
 .footer {
-  background-color: #e6e6e6;
+  background-color: #fff;
   color: var(--color-base);
   padding: 40px 0;
 

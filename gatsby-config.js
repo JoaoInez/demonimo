@@ -1,7 +1,5 @@
 const path = require(`path`);
-
 const config = require(`./src/utils/siteConfig`);
-const generateRSSFeed = require(`./src/utils/rss/generate-feed`);
 
 let ghostConfig;
 
@@ -102,24 +100,6 @@ module.exports = {
                     }
                 }
               `,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-                {
-                    allGhostSettings {
-                        edges {
-                            node {
-                                title
-                                description
-                            }
-                        }
-                    }
-                }
-              `,
-        feeds: [generateRSSFeed(config)],
       },
     },
     {

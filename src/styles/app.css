@@ -16,8 +16,6 @@ what's here to work the way you'd like it to.
 - Pagination
 - Footer
 
-// TODO: Cleanup css, fonts, colors and variables
-
 /* Variables
 /* ---------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
@@ -31,13 +29,11 @@ what's here to work the way you'd like it to.
 
 :root {
   /* Colours */
-  --color-primary: #3eb0ef;
+  --color-primary: #26a8ed;
   --color-base: #15171a;
-  --color-secondary: #5b7a81;
-  --color-border: #c7d5d8;
-  --color-bg: #f5f5f5;
-  --article-shadow-normal: 0 10px 10px rgba(0, 0, 0, 0.08);
-  --article-shadow-hover: 0 4px 60px 0 rgba(0, 0, 0, 0.2);
+  --color-secondary: #e6e6e6;
+  --color-terciary: #5b7a81;
+  --color-accent: #cbeafb;
   --color-background: #0a0a0a;
 
   /* Fonts */
@@ -60,6 +56,9 @@ what's here to work the way you'd like it to.
   --height: 4rem;
   --margin: 2rem;
   --radius: 0.6rem;
+
+  /* Shadows */
+  --shadow-normal: 0 10px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* Reset
@@ -326,7 +325,7 @@ html {
 
 body {
   overflow-x: hidden;
-  color: #3c484e;
+  color: var(--color-secondary);
   font-family: var(--font-libre-baskerville);
   font-size: 1.5rem;
   line-height: 1.6em;
@@ -343,7 +342,7 @@ body {
 
 ::selection {
   text-shadow: none;
-  background: #cbeafb;
+  background: var(--color-accent);
 }
 
 hr {
@@ -432,7 +431,7 @@ dd {
 blockquote {
   margin: 0.3em 0 1.8em;
   padding: 0 1.6em 0 1.6em;
-  border-left: #cbeafb 0.5em solid;
+  border-left: var(--color-accent) 0.5em solid;
 }
 
 blockquote p {
@@ -460,7 +459,7 @@ blockquote cite a {
 }
 
 a {
-  color: #26a8ed;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -556,11 +555,9 @@ h6 {
   display: flex;
   flex-direction: column;
   font-family: var(--font-libre-baskerville);
-  color: #e6e6e6;
 }
 
 .post-full-content {
-  padding-top: 4vw;
   max-width: 720px;
   margin: 0 auto;
   background: var(--color-background);
@@ -573,7 +570,6 @@ h6 {
 .content-body h5,
 .content-body h6 {
   font-family: var(--font-libre-baskerville);
-  color: #e6e6e6;
 }
 
 .content-body h1 {
@@ -724,117 +720,15 @@ h6 {
   margin-top: 4vw;
 }
 
-.post-feed article:nth-child(6n - 5) {
-  grid-column: span 2;
-}
-
 @media (max-width: 980px) {
   .post-feed {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .post-feed article:nth-child(6n - 5) {
-    grid-column: span 1;
-  }
-
-  .post-feed article:nth-child(1) {
-    grid-column: span 2;
   }
 }
 @media (max-width: 680px) {
   .post-feed {
     grid-template-columns: 1fr;
     grid-gap: 4vw;
-  }
-
-  .post-feed article:nth-child(6n - 5) {
-    grid-column: span 1;
-  }
-}
-
-/* Tag Archives
-/* ---------------------------------------------------------- */
-
-.tag-header {
-  max-width: 690px;
-  margin: 4vw 0 4vw;
-}
-
-.tag-header h1 {
-  margin: 0 0 1rem 0;
-}
-
-.tag-header p {
-  margin: 0;
-  color: var(--color-secondary);
-  font-size: 2.2rem;
-  line-height: 1.3em;
-}
-
-@media (max-width: 500px) {
-  .tag-header {
-    border-bottom: var(--color-bg) 1px solid;
-    padding-bottom: 4vw;
-  }
-  .tag-header p {
-    font-size: 1.7rem;
-  }
-}
-
-/* Author Archives
-/* ---------------------------------------------------------- */
-
-.author-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 4vw 0 4vw;
-}
-
-.author-header h1 {
-  margin: 0 0 1rem 0;
-}
-
-.author-header p {
-  margin: 0;
-  color: var(--color-secondary);
-  font-size: 2.2rem;
-  line-height: 1.3em;
-}
-
-.author-header-image {
-  flex: 0 0 auto;
-  margin: 0 0 0 4vw;
-  height: 120px;
-  width: 120px;
-  border-radius: 100%;
-  overflow: hidden;
-}
-
-.author-header-meta {
-  display: flex;
-  margin: 1rem 0 0 0;
-}
-
-.author-header-item {
-  display: block;
-  padding: 2px 10px;
-}
-
-.author-header-item:first-child {
-  padding-left: 0;
-}
-
-@media (max-width: 500px) {
-  .author-header {
-    border-bottom: var(--color-bg) 1px solid;
-    padding-bottom: 4vw;
-  }
-  .author-header p {
-    font-size: 1.7rem;
-  }
-  .author-header-image {
-    height: 80px;
-    width: 80px;
   }
 }
 
@@ -846,14 +740,14 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4vw 0 0;
+  margin: 8vw 0 0;
 }
 
 .pagination a {
   display: inline-block;
   padding: 10px 15px;
   color: var(--color-base);
-  background-color: #e6e6e6;
+  background-color: #fff;
   text-decoration: none;
   font-size: 1.4rem;
   line-height: 1em;
@@ -866,7 +760,6 @@ h6 {
   width: 100px;
   margin-left: -50px;
   text-align: center;
-  color: #e6e6e6;
   font-size: 1.3rem;
 }
 

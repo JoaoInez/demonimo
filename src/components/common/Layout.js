@@ -5,7 +5,6 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 import { Navigation } from ".";
-// import config from "../../utils/siteConfig";
 
 // Styles
 import "../../styles/app.css";

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 import { Layout, PostCard, Pagination } from "../components/common";
 import { MetaData } from "../components/common/meta";
+import styles from "../styles/Author.module.scss";
 
 /**
  * Author page (/author/:slug)
@@ -25,52 +27,44 @@ const Author = ({ data, location, pageContext }) => {
     <>
       <MetaData data={data} location={location} type="profile" />
       <Layout>
-        <div className="container">
-          {/* TODO: Author header */}
-          <header className="author-header">
-            <div className="author-header-content">
-              <h1>{author.name}</h1>
-              {author.bio && <p>{author.bio}</p>}
-              <div className="author-header-meta">
-                {author.website && (
-                  <a
-                    className="author-header-item"
-                    href={author.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Website
-                  </a>
-                )}
-                {twitterUrl && (
-                  <a
-                    className="author-header-item"
-                    href={twitterUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Twitter
-                  </a>
-                )}
-                {facebookUrl && (
-                  <a
-                    className="author-header-item"
-                    href={facebookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Facebook
-                  </a>
-                )}
-              </div>
-            </div>
-            <div className="author-header-image">
+        <header className={styles.header}>
+          <div className={`container ${styles.content}`}>
+            <div className={styles.image}>
               {author.profile_image ? (
                 <img src={author.profile_image} alt={author.name} />
-              ) : // <img src="/images/icons/avatar.svg" alt={author.name} />
-              null}
+              ) : (
+                <img src="/images/icons/avatar.svg" alt={author.name} />
+              )}
             </div>
-          </header>
+            <h1>{author.name}</h1>
+            {author.bio && <p>{author.bio}</p>}
+            <div className={styles.meta}>
+              {author.website && (
+                <a
+                  href={author.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram />
+                </a>
+              )}
+              {twitterUrl && (
+                <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
+                  <FaTwitter />
+                </a>
+              )}
+              {facebookUrl && (
+                <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
+                  <FaFacebook />
+                </a>
+              )}
+            </div>
+            <span>
+              {posts.length} {`estória${posts.length !== 1 ? "s" : ""}`}
+            </span>
+          </div>
+        </header>
+        <div className="container">
           <section className="post-feed">
             {posts.map(({ node }) => (
               // The tag below includes the markup for each post - components/common/PostCard.js

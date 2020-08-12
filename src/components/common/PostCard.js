@@ -1,70 +1,68 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import { readingTime as readingTimeHelper } from "@tryghost/helpers";
 import { FaStar } from "react-icons/fa";
+import { BsDot } from "react-icons/bs";
+import howLongSince from "../../utils/howLongSince";
+import getRandomColor from "../../utils/randomColor";
 import styles from "../../styles/PostCard.module.scss";
 
 const PostCard = ({ post }) => {
   const url = `/${post.slug}/`;
-  const readingTime = readingTimeHelper(post).replace("read", "de leitura");
+  const posted = howLongSince(post.published_at);
 
   return (
     <article
-      className={`${styles.card} ${!post.feature_image ? styles.noImage : ""}`}
+      className={`${styles.card} ${
+        !post.feature_image ? getRandomColor(styles) : ""
+      }`}
       style={
         post.feature_image && {
           backgroundImage: `url(${post.feature_image})`,
         }
       }
     >
-      <div className={styles.cardWrapper}>
+      {post.tags.length ? (
+        <div className={styles.tags}>
+          {post.tags.map((tag) => (
+            <Fragment key={tag.name}>
+              <Link to={`/tag/${tag.slug}/`}>{tag.name}</Link>
+              <BsDot />
+            </Fragment>
+          ))}
+        </div>
+      ) : null}
+      <Link to={url} className={styles.body}>
         {post.featured && (
           <div className={styles.featured}>
             <span>Em destaque</span>
             <FaStar />
           </div>
         )}
-        <section className={styles.body}>
-          {post.tags.length ? (
-            <div className={styles.tags}>
-              {post.tags.map((tag) => (
-                <Link to={`/tag/${tag.slug}/`} key={tag.name}>
-                  {tag.name}
-                </Link>
-              ))}
-            </div>
-          ) : null}
-          <Link to={url} className={styles.content}>
-            <h2 className="post-card-title">{post.title}</h2>
-          </Link>
+        <section className={styles.content}>
+          <h2 className="post-card-title">{post.title}</h2>
         </section>
-        <footer className={styles.footer}>
-          <Link
-            to={`/author/${post.primary_author.slug}/`}
-            className={styles.footerLeft}
-          >
-            <div className={styles.avatar}>
-              {post.primary_author.profile_image ? (
-                <img
-                  className={styles.authorImage}
-                  src={post.primary_author.profile_image}
-                  alt={post.primary_author.name}
-                />
-              ) : (
-                <img
-                  src="/images/icons/avatar.svg"
-                  alt={post.primary_author.name}
-                />
-              )}
-            </div>
-            <span>{post.primary_author.name}</span>
-          </Link>
-          <div className={styles.footerRight}>
-            <div>{readingTime}</div>
-          </div>
-        </footer>
-      </div>
+      </Link>
+      <Link
+        to={`/author/${post.primary_author.slug}/`}
+        className={styles.author}
+      >
+        <div className={styles.avatar}>
+          {post.primary_author.profile_image ? (
+            <img
+              src={post.primary_author.profile_image}
+              alt={post.primary_author.name}
+            />
+          ) : (
+            <img
+              src="/images/icons/avatar.svg"
+              alt={post.primary_author.name}
+            />
+          )}
+        </div>
+        <span>{post.primary_author.name}</span>
+      </Link>
+      <span className={styles.posted}>há {posted}</span>
     </article>
   );
 };
@@ -86,6 +84,7 @@ PostCard.propTypes = {
       profile_image: PropTypes.string,
       slug: PropTypes.string.isRequired,
     }).isRequired,
+    published_at: PropTypes.string.isRequired,
   }).isRequired,
 };
 

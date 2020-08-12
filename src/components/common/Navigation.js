@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import styles from "../../styles/Layout.module.scss";
 
 /**
  * Navigation component
@@ -29,7 +30,12 @@ const Navigation = ({ data, navClass }) => (
         );
       } else {
         return (
-          <Link className={navClass} to={navItem.url} key={i}>
+          <Link
+            className={navClass}
+            to={navItem.url}
+            key={i}
+            activeClassName={styles.active}
+          >
             {navItem.label}
           </Link>
         );
