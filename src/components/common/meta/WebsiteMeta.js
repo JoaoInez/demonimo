@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
-import _ from "lodash";
 import { StaticQuery, graphql } from "gatsby";
 import url from "url";
 
@@ -23,8 +22,7 @@ const WebsiteMeta = ({
     config.siteUrl,
     settings.logo || config.siteIcon
   );
-  let shareImage =
-    image || data.feature_image || _.get(settings, `cover_image`, null);
+  let shareImage = image || data.feature_image || "meta-img.png" || null;
 
   shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null;
 
