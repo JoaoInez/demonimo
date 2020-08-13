@@ -35,7 +35,6 @@ const PostCard = ({ post }) => {
       <Link to={url} className={styles.body}>
         {post.featured && (
           <div className={styles.featured}>
-            <span>Em destaque</span>
             <FaStar />
           </div>
         )}
