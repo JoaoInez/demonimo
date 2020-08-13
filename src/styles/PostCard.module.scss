@@ -14,17 +14,16 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 30px;
-    height: 30px;
     z-index: 1;
-    background-color: #fff;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
     pointer-events: none;
     box-shadow: var(--shadow-normal), 0 0 0 transparent;
+
+    svg {
+      transform: scale(1.25);
+    }
   }
 
   .tags {

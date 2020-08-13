@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import { FaStar } from "react-icons/fa";
+import { MdStars } from "react-icons/md";
 import { BsDot } from "react-icons/bs";
+
 import howLongSince from "../../utils/howLongSince";
 import styles from "../../styles/PostCard.module.scss";
 
@@ -32,7 +33,7 @@ const PostCard = ({ post }) => {
       <Link to={url} className={styles.body}>
         {post.featured && (
           <div className={styles.featured}>
-            <FaStar />
+            <MdStars size="2em" />
           </div>
         )}
         <section className={styles.content}>
