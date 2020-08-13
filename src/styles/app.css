@@ -49,6 +49,11 @@ what's here to work the way you'd like it to.
   src: url("../fonts/Hellvetica.ttf") format("truetype");
 }
 
+.hellvetica {
+  font-family: var(--font-hellvetica);
+  color: red;
+}
+
 /* Variables
 /* ---------------------------------------------------------- */
 :root {
