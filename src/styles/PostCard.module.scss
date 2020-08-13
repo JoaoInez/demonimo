@@ -1,5 +1,5 @@
 .card {
-  background-color: var(--color-base);
+  background-color: #2b2d42;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -8,22 +8,6 @@
 
   &:hover {
     transform: translateY(-5px);
-  }
-
-  &.yellow {
-    background-color: #ffbe0b;
-  }
-  &.orange {
-    background-color: #fb5607;
-  }
-  &.pink {
-    background-color: #ff006e;
-  }
-  &.purple {
-    background-color: #8338ec;
-  }
-  &.blue {
-    background-color: #3a86ff;
   }
 
   .featured {
@@ -48,7 +32,9 @@
     top: 20px;
     left: 20px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    max-width: 75%;
 
     a {
       color: #fff;

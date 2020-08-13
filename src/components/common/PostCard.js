@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import { FaStar } from "react-icons/fa";
 import { BsDot } from "react-icons/bs";
 import howLongSince from "../../utils/howLongSince";
-import getRandomColor from "../../utils/randomColor";
 import styles from "../../styles/PostCard.module.scss";
 
 const PostCard = ({ post }) => {
@@ -13,9 +12,7 @@ const PostCard = ({ post }) => {
 
   return (
     <article
-      className={`${styles.card} ${
-        !post.feature_image ? getRandomColor(styles) : ""
-      }`}
+      className={styles.card}
       style={
         post.feature_image && {
           backgroundImage: `url(${post.feature_image})`,
