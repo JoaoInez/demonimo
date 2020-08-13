@@ -5,7 +5,7 @@ import config from "../../../utils/siteConfig";
 
 const ImageMeta = ({ image }) => {
   if (!image) {
-    return "/meta-img.png";
+    return null;
   }
 
   return (

@@ -32,7 +32,7 @@ const MetaData = ({ data, settings, title, description, image, location }) => {
     title = title || config.siteTitleMeta || settings.title;
     description =
       description || config.siteDescriptionMeta || settings.description;
-    image = image || settings.cover_image || null;
+    image = image || "/meta-img.png";
 
     image = image ? url.resolve(config.siteUrl, image) : null;
 
