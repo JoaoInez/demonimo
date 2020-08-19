@@ -55,9 +55,20 @@ what's here to work the way you'd like it to.
   font-display: swap;
 }
 
+.unifraktur {
+  font-family: var(--font-unifraktur);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.dawning-of-a-new-day {
+  font-family: var(--font-dawning-of-a-new-day);
+}
+
 .hellvetica {
   font-family: var(--font-hellvetica);
-  color: red;
 }
 
 /* Variables

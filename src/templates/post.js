@@ -6,7 +6,9 @@ import { FaFacebook, FaTwitter, FaShareAlt } from "react-icons/fa";
 
 import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";
+import config from "../utils/siteConfig";
 import styles from "../styles/Post.module.scss";
+import siteConfig from "../utils/siteConfig";
 
 /**
  * Single post view (/:slug)
@@ -16,7 +18,7 @@ import styles from "../styles/Post.module.scss";
  */
 const Post = ({ data, location }) => {
   const post = data.ghostPost;
-  const url = window.location.href;
+  const url = `${config.siteUrl}/${post.slug}/`;
 
   const sharePost = () => {
     navigator.share({
