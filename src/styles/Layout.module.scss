@@ -8,7 +8,7 @@
     margin-right: 30px;
     color: var(--color-terciary);
     text-decoration: none;
-    transition: all 0.12s cubic-bezier(0.02, 0.01, 0.5, 1);
+    transition: all 0.12s var(--transition-bezier);
 
     &.active {
       color: var(--color-primary);
@@ -30,14 +30,14 @@
 .banner {
   animation-name: fade-top;
   animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.02, 0.01, 0.5, 1);
+  animation-timing-function: var(--transition-bezier);
 }
 
 .main {
   opacity: 0;
   animation-name: fade-bottom;
   animation-duration: 0.5s;
-  animation-timing-function: cubic-bezier(0.02, 0.01, 0.5, 1);
+  animation-timing-function: var(--transition-bezier);
   animation-delay: 200ms;
   animation-fill-mode: forwards;
 }

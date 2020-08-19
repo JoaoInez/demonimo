@@ -8,10 +8,34 @@
     object-fit: cover;
   }
 
+  .shareContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4vw 0;
+
+    a,
+    button {
+      background-color: var(--color-card);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 1rem;
+      transition: all 0.25s var(--transition-bezier);
+      color: var(--color-primary);
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
   .authorContainer {
     background-color: var(--color-base);
     padding: 4vw;
-    margin-top: 4vw;
     display: block;
     text-decoration: none;
     color: inherit;

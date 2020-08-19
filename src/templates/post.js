@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
+import { FaFacebook, FaTwitter, FaShareAlt } from "react-icons/fa";
 
 import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";
@@ -15,6 +16,14 @@ import styles from "../styles/Post.module.scss";
  */
 const Post = ({ data, location }) => {
   const post = data.ghostPost;
+  const url = window.location.href;
+
+  const sharePost = () => {
+    navigator.share({
+      title: post.title,
+      url,
+    });
+  };
 
   return (
     <>
@@ -44,6 +53,30 @@ const Post = ({ data, location }) => {
               />
             </section>
           </article>
+        </div>
+        <div className={styles.shareContainer}>
+          {navigator.share ? (
+            <button onClick={sharePost}>
+              <FaShareAlt size={20} />
+            </button>
+          ) : (
+            <>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+                target="blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook size={20} />
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${post.title}&url=${url}`}
+                target="blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter size={20} />
+              </a>
+            </>
+          )}
         </div>
         <Link
           to={`/author/${post.primary_author.slug}/`}

@@ -70,6 +70,7 @@ what's here to work the way you'd like it to.
   --color-terciary: #5b7a81;
   --color-accent: #cbeafb;
   --color-background: #0a0a0a;
+  --color-card: #2b2d42;
 
   /* Fonts */
   --font-unifraktur: "UnifrakturMaguntia", cursive;
@@ -90,6 +91,9 @@ what's here to work the way you'd like it to.
 
   /* Shadows */
   --shadow-normal: 0 10px 10px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --transition-bezier: cubic-bezier(0.02, 0.01, 0.5, 1);
 }
 
 /* Reset
