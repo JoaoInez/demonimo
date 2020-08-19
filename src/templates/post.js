@@ -57,7 +57,7 @@ const Post = ({ data, location }) => {
           </article>
         </div>
         <div className={styles.shareContainer}>
-          {navigator.share ? (
+          {navigator && navigator.share ? (
             <button onClick={sharePost}>
               <FaShareAlt size={20} />
             </button>
