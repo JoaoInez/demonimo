@@ -8,7 +8,6 @@ import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";
 import config from "../utils/siteConfig";
 import styles from "../styles/Post.module.scss";
-import siteConfig from "../utils/siteConfig";
 
 /**
  * Single post view (/:slug)
@@ -19,13 +18,6 @@ import siteConfig from "../utils/siteConfig";
 const Post = ({ data, location }) => {
   const post = data.ghostPost;
   const url = `${config.siteUrl}/${post.slug}/`;
-
-  const sharePost = () => {
-    navigator.share({
-      title: post.title,
-      url,
-    });
-  };
 
   return (
     <>
@@ -57,28 +49,20 @@ const Post = ({ data, location }) => {
           </article>
         </div>
         <div className={styles.shareContainer}>
-          {navigator && navigator.share ? (
-            <button onClick={sharePost}>
-              <FaShareAlt size={20} />
-            </button>
-          ) : (
-            <>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebook size={20} />
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?text=${post.title}&url=${url}`}
-                target="blank"
-                rel="noopener noreferrer"
-              >
-                <FaTwitter size={20} />
-              </a>
-            </>
-          )}
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook size={20} />
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${post.title}&url=${url}`}
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter size={20} />
+          </a>
         </div>
         <Link
           to={`/author/${post.primary_author.slug}/`}
