@@ -380,7 +380,7 @@ body {
   letter-spacing: 0;
   text-rendering: optimizeLegibility;
   background: var(--color-background);
-
+  font-feature-settings: "liga" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga" on;
