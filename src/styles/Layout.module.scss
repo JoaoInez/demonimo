@@ -27,10 +27,41 @@
   }
 }
 
-.banner {
-  animation-name: fade-top;
-  animation-duration: 0.5s;
-  animation-timing-function: var(--transition-bezier);
+.header {
+  color: #fff;
+  background: var(--color-base);
+  background-position: center;
+  background-size: cover;
+
+  .banner {
+    padding: 10vw 0;
+    text-align: center;
+    background-color: rgba(#000, 0.3);
+
+    div {
+      max-width: 80%;
+      animation-name: fade-top;
+      animation-duration: 0.5s;
+      animation-timing-function: var(--transition-bezier);
+
+      h1 {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-size: 5rem;
+        line-height: 1.3em;
+        font-family: var(--font-unifraktur);
+      }
+
+      p {
+        margin: 5px 0 0 0;
+        padding: 0;
+        font-size: 2.4rem;
+        line-height: 1.3em;
+        color: var(--color-secondary);
+      }
+    }
+  }
 }
 
 .main {

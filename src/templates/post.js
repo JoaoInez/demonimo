@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import { FaFacebook, FaTwitter, FaShareAlt } from "react-icons/fa";
+import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";

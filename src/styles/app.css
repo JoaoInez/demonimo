@@ -713,40 +713,6 @@ h6 {
   border-radius: 12px;
 }
 
-/* Header
-/* ---------------------------------------------------------- */
-
-.site-head {
-  color: #fff;
-  background: var(--color-base);
-  background-position: center;
-  background-size: cover;
-}
-
-.site-banner {
-  max-width: 80%;
-  margin: 0 auto;
-  padding: 10vw 0;
-  text-align: center;
-}
-
-.site-banner-title {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  font-size: 5rem;
-  line-height: 1.3em;
-  font-family: var(--font-unifraktur);
-}
-
-.site-banner-desc {
-  margin: 5px 0 0 0;
-  padding: 0;
-  font-size: 2.4rem;
-  line-height: 1.3em;
-  opacity: 0.7;
-}
-
 /* Main
 /* ---------------------------------------------------------- */
 

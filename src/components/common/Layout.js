@@ -44,21 +44,21 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           </nav>
           {/* The main header section on top of the screen */}
           <header
-            className="site-head"
+            className={styles.header}
             style={{
               ...(site.cover_image && {
                 backgroundImage: `url(${site.cover_image})`,
               }),
             }}
           >
-            <div className="container">
-              {isHome ? (
-                <div className={`site-banner ${styles.banner}`}>
-                  <h1 className="site-banner-title">{site.title}</h1>
-                  <p className="site-banner-desc">{site.description}</p>
+            {isHome ? (
+              <div className={styles.banner}>
+                <div className="container">
+                  <h1>{site.title}</h1>
+                  <p>{site.description}</p>
                 </div>
-              ) : null}
-            </div>
+              </div>
+            ) : null}
           </header>
 
           <main className={`site-main ${styles.main}`}>
