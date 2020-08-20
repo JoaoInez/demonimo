@@ -45,11 +45,11 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           {/* The main header section on top of the screen */}
           <header
             className={styles.header}
-            style={{
-              ...(site.cover_image && {
+            style={
+              site.cover_image && {
                 backgroundImage: `url(${site.cover_image})`,
-              }),
-            }}
+              }
+            }
           >
             {isHome ? (
               <div className={styles.banner}>

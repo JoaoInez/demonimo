@@ -27,41 +27,58 @@ const Author = ({ data, location, pageContext }) => {
     <>
       <MetaData data={data} location={location} type="profile" />
       <Layout>
-        <header className={styles.header}>
-          <div className={`container ${styles.content}`}>
-            <div className={styles.image}>
-              {author.profile_image ? (
-                <img src={author.profile_image} alt={author.name} />
-              ) : (
-                <img src="/images/icons/avatar.svg" alt={author.name} />
-              )}
+        <header
+          className={styles.header}
+          style={
+            author.cover_image && {
+              backgroundImage: `url(${author.cover_image})`,
+            }
+          }
+        >
+          <div className={styles.headerWrapper}>
+            <div className={`container ${styles.content}`}>
+              <div className={styles.image}>
+                {author.profile_image ? (
+                  <img src={author.profile_image} alt={author.name} />
+                ) : (
+                  <img src="/images/icons/avatar.svg" alt={author.name} />
+                )}
+              </div>
+              <h1>{author.name}</h1>
+              {author.bio && <p>{author.bio}</p>}
+              <div className={styles.meta}>
+                {author.website && (
+                  <a
+                    href={author.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaInstagram />
+                  </a>
+                )}
+                {twitterUrl && (
+                  <a
+                    href={twitterUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaTwitter />
+                  </a>
+                )}
+                {facebookUrl && (
+                  <a
+                    href={facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaFacebook />
+                  </a>
+                )}
+              </div>
+              <span>
+                {posts.length} {`estória${posts.length !== 1 ? "s" : ""}`}
+              </span>
             </div>
-            <h1>{author.name}</h1>
-            {author.bio && <p>{author.bio}</p>}
-            <div className={styles.meta}>
-              {author.website && (
-                <a
-                  href={author.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaInstagram />
-                </a>
-              )}
-              {twitterUrl && (
-                <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
-                  <FaTwitter />
-                </a>
-              )}
-              {facebookUrl && (
-                <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-                  <FaFacebook />
-                </a>
-              )}
-            </div>
-            <span>
-              {posts.length} {`estória${posts.length !== 1 ? "s" : ""}`}
-            </span>
           </div>
         </header>
         <div className="container">
