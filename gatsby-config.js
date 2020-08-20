@@ -171,6 +171,12 @@ module.exports = {
         addUncaughtPages: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-148476661-3",
+      },
+    },
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
