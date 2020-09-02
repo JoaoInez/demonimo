@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
 import { Layout } from "../components/common";
@@ -36,7 +36,7 @@ const Autores = ({ data, location }) => {
 };
 
 // TODO
-Autores.propTypes = {};
+// Autores.propTypes = {};
 
 export default Autores;
 

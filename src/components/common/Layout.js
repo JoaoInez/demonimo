@@ -36,7 +36,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         <html lang={site.lang} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
         <body className={bodyClass} />
-        {sidebarOpen && <body style="position:fixed;width:100%;" />}
+        {sidebarOpen && <body style={{ position: "fixed", width: "100%" }} />}
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">

@@ -72,12 +72,13 @@ const Navigation = ({ data, navbar = false, open, setOpen }) => {
               );
             }
           })}
-          <Link to="/autores">Autores</Link>
+          <Link to="/autores" activeClassName={styles.active}>
+            Autores
+          </Link>
         </nav>
-        <button
-          className={styles.closeArea}
-          onClick={() => setOpen(false)}
-        ></button>
+        <button className={styles.closeArea} onClick={() => setOpen(false)}>
+          {null}
+        </button>
       </div>
     </nav>
   ) : (

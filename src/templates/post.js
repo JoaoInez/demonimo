@@ -6,7 +6,6 @@ import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";
-import config from "../utils/siteConfig";
 import styles from "../styles/Post.module.scss";
 
 /**
