@@ -17,7 +17,7 @@ import styles from "../styles/Post.module.scss";
  */
 const Post = ({ data, location }) => {
   const post = data.ghostPost;
-  const url = `${config.siteUrl}/${post.slug}/`;
+  const url = location.href;
 
   return (
     <>

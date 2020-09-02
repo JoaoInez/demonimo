@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { Link, StaticQuery, graphql } from "gatsby";
@@ -26,6 +26,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
   const facebookUrl = site.facebook
     ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}`
     : null;
+  const instagramUrl = "https://www.instagram.com/demonimo/";
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
@@ -33,15 +36,22 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         <html lang={site.lang} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
         <body className={bodyClass} />
+        {sidebarOpen && <body style="position:fixed;width:100%;" />}
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">
-          <nav className={styles.navbar}>
+          <div className={styles.navbar}>
             <div className="container">
               {/* The navigation items as setup in Ghost */}
-              <Navigation data={site.navigation} navClass={styles.navbarItem} />
+              <Navigation
+                data={site.navigation}
+                navClass={styles.nav}
+                navbar={true}
+                open={sidebarOpen}
+                setOpen={setSidebarOpen}
+              />
             </div>
-          </nav>
+          </div>
           {/* The main header section on top of the screen */}
           <header
             className={styles.header}
@@ -81,7 +91,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 {site.twitter && (
                   <a
                     href={twitterUrl}
-                    className="site-nav-item"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -91,7 +100,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 {site.facebook && (
                   <a
                     href={facebookUrl}
-                    className="site-nav-item"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -99,8 +107,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                   </a>
                 )}
                 <a
-                  href="https://www.instagram.com/demonimo/"
-                  className="site-nav-item"
+                  href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
