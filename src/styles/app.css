@@ -7,6 +7,7 @@ what's here to work the way you'd like it to.
 
 # Table of Contents
 
+- Fonts
 - Vars
 - Reset
 - Defaults
@@ -54,6 +55,16 @@ what's here to work the way you'd like it to.
   src: url("../fonts/Hellvetica.ttf") format("truetype");
   font-display: swap;
 }
+@font-face {
+  font-family: "Monoton";
+  src: url("../fonts/Monoton-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Grenze Gotisch";
+  src: url("../fonts/GrenzeGotisch-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
 
 .unifraktur {
   font-family: var(--font-unifraktur);
@@ -69,6 +80,14 @@ what's here to work the way you'd like it to.
 
 .hellvetica {
   font-family: var(--font-hellvetica);
+}
+
+.monoton {
+  font-family: var(--font-monoton);
+}
+
+.grenze-gotisch {
+  font-family: var(--font-grenze-gotisch);
 }
 
 /* Variables
@@ -89,6 +108,8 @@ what's here to work the way you'd like it to.
   --font-mono: Menlo, Courier, monospace;
   --font-dawning-of-a-new-day: "Dawning of a New Day", cursive;
   --font-hellvetica: "Hellvetica", "Helvetica Neue", serif;
+  --font-monoton: "Monoton", cursive;
+  --font-grenze-gotisch: "Grenze Gotisch", cursive;
   --font-serif: Georgia, Times, serif;
   --font-light: 100;
   --font-normal: 400;
