@@ -4,3 +4,9 @@
 
 [template]
   incoming-hooks = ["Ghost"]
+
+[[redirects]]
+  from = "https://demonimo.netlify.app"
+  to = "https://demonimo.pt"
+  status = 301
+  force = true

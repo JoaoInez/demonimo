@@ -2,4 +2,3 @@
 # https://www.netlify.com/docs/redirects/
 
 /admin                              https://demonimo.herokuapp.com/ghost/#/posts
-http://demonimo.netlify.app/        https://demonimo.pt
