@@ -392,6 +392,7 @@ html {
 
 body {
   overflow-x: hidden;
+  background-color: var(--color-background);
   color: var(--color-secondary);
   font-family: var(--font-libre-baskerville);
   font-size: 1.5rem;
@@ -400,7 +401,6 @@ body {
   font-style: normal;
   letter-spacing: 0;
   text-rendering: optimizeLegibility;
-  background: var(--color-background);
   font-feature-settings: "liga" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -632,7 +632,6 @@ h6 {
 .post-full-content {
   max-width: 720px;
   margin: 0 auto;
-  background: var(--color-background);
 }
 
 .content-body h1,
