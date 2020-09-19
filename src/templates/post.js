@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
+import { Parallax } from "react-parallax";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 import { Layout } from "../components/common";
@@ -20,79 +20,76 @@ const Post = ({ data, location }) => {
   const url = location.href;
 
   return (
-    <ParallaxProvider>
-      <>
-        <MetaData data={data} location={location} type="article" />
-        <Helmet>
-          <style type="text/css">{`${post.codeinjection_styles}`}</style>
-        </Helmet>
-        <Layout bodyClass={styles.main}>
-          {post.feature_image ? (
-            <ParallaxBanner
-              className={styles.banner}
-              layers={[
-                {
-                  image: post.feature_image,
-                  amount: 0.15,
-                },
-              ]}
-            ></ParallaxBanner>
-          ) : null}
-          <div className="container">
-            <article className="content">
-              <section className="post-full-content">
-                <h1 className="content-title">{post.title}</h1>
-                {/* The main post content */}
-                <section
-                  className="content-body load-external-scripts"
-                  dangerouslySetInnerHTML={{ __html: post.html }}
-                />
-              </section>
-            </article>
-          </div>
-          <div className={styles.shareContainer}>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-              target="blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook size={20} />
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?text=${post.title}&url=${url}`}
-              target="blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter size={20} />
-            </a>
-          </div>
-          <Link
-            to={`/author/${post.primary_author.slug}/`}
-            className={styles.authorContainer}
+    <>
+      <MetaData data={data} location={location} type="article" />
+      <Helmet>
+        <style type="text/css">{`${post.codeinjection_styles}`}</style>
+      </Helmet>
+      <Layout bodyClass={styles.main}>
+        {post.feature_image ? (
+          <Parallax
+            bgImage={post.feature_image}
+            bgImageAlt={post.title}
+            strength={75}
+            className={styles.parallax}
           >
+            <div className={styles.featureImage} />
+          </Parallax>
+        ) : null}
+        <div className="container">
+          <article className="content">
+            <section className="post-full-content">
+              <h1 className="content-title">{post.title}</h1>
+              {/* The main post content */}
+              <section
+                className="content-body load-external-scripts"
+                dangerouslySetInnerHTML={{ __html: post.html }}
+              />
+            </section>
+          </article>
+        </div>
+        <div className={styles.shareContainer}>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook size={20} />
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${post.title}&url=${url}`}
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            <FaTwitter size={20} />
+          </a>
+        </div>
+        <Link
+          to={`/author/${post.primary_author.slug}/`}
+          className={styles.authorContainer}
+        >
+          <div>
+            {post.primary_author.profile_image ? (
+              <img
+                className={styles.authorImage}
+                src={post.primary_author.profile_image}
+                alt={post.primary_author.name}
+              />
+            ) : (
+              <img
+                className={styles.authorImage}
+                src="/images/icons/avatar.svg"
+                alt={post.primary_author.name}
+              />
+            )}
             <div>
-              {post.primary_author.profile_image ? (
-                <img
-                  className={styles.authorImage}
-                  src={post.primary_author.profile_image}
-                  alt={post.primary_author.name}
-                />
-              ) : (
-                <img
-                  className={styles.authorImage}
-                  src="/images/icons/avatar.svg"
-                  alt={post.primary_author.name}
-                />
-              )}
-              <div>
-                <p>{post.primary_author.name}</p>
-                {post.primary_author.bio && <p>{post.primary_author.bio}</p>}
-              </div>
+              <p>{post.primary_author.name}</p>
+              {post.primary_author.bio && <p>{post.primary_author.bio}</p>}
             </div>
-          </Link>
-        </Layout>
-      </>
-    </ParallaxProvider>
+          </div>
+        </Link>
+      </Layout>
+    </>
   );
 };
 

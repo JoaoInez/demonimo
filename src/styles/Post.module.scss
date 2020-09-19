@@ -2,8 +2,16 @@
   padding-bottom: 0;
 }
 
-.banner {
-  height: 50vh !important;
+.parallax {
+  margin: 0 0 3vw;
+
+  img {
+    object-fit: cover;
+  }
+
+  .featureImage {
+    height: 70vh;
+  }
 }
 
 .shareContainer {
@@ -71,8 +79,8 @@
 }
 
 @media (max-width: 500px) {
-  .banner {
-    height: 40vh !important;
+  .parallax .featureImage {
+    height: 50vh;
   }
 
   .authorContainer > div .authorImage {
