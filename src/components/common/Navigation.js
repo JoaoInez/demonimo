@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import Headroom from "react-headroom";
 import { FiMenu } from "react-icons/fi";
 
 import styles from "../../styles/Navbar.module.scss";
@@ -17,70 +18,84 @@ const Navigation = ({ data, navbar = false, open, setOpen }) => {
   const [home, ...navItems] = data;
 
   return navbar ? (
-    <nav className={styles.nav}>
-      <button
-        className={styles.toggleSidebar}
-        onClick={() => setOpen((_open) => !_open)}
-      >
-        <FiMenu />
-      </button>
-      <Link to={home.url}>{home.label}</Link>
-      <div>
-        {navItems.map((navItem, i) => {
-          if (navItem.url.match(/^\s?http(s?)/gi)) {
-            return (
-              <a
-                href={navItem.url}
-                key={i}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {navItem.label}
-              </a>
-            );
-          } else {
-            return (
-              <Link to={navItem.url} key={i} activeClassName={styles.active}>
-                {navItem.label}
-              </Link>
-            );
-          }
-        })}
-        <Link to="/autores">Autores</Link>
-      </div>
-      <div
-        className={open ? `${styles.sidebar} ${styles.open}` : styles.sidebar}
-      >
-        <nav>
-          {navItems.map((navItem, i) => {
-            if (navItem.url.match(/^\s?http(s?)/gi)) {
-              return (
-                <a
-                  href={navItem.url}
-                  key={i}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {navItem.label}
-                </a>
-              );
-            } else {
-              return (
-                <Link to={navItem.url} key={i} activeClassName={styles.active}>
-                  {navItem.label}
-                </Link>
-              );
+    <Headroom className={styles.headroom}>
+      <div className={`container ${styles.container}`}>
+        <nav className={styles.nav}>
+          <button
+            className={styles.toggleSidebar}
+            onClick={() => setOpen((_open) => !_open)}
+          >
+            <FiMenu />
+          </button>
+          <Link to={home.url}>{home.label}</Link>
+          <div>
+            {navItems.map((navItem, i) => {
+              if (navItem.url.match(/^\s?http(s?)/gi)) {
+                return (
+                  <a
+                    href={navItem.url}
+                    key={i}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {navItem.label}
+                  </a>
+                );
+              } else {
+                return (
+                  <Link
+                    to={navItem.url}
+                    key={i}
+                    activeClassName={styles.active}
+                  >
+                    {navItem.label}
+                  </Link>
+                );
+              }
+            })}
+            <Link to="/autores">Autores</Link>
+          </div>
+          <div
+            className={
+              open ? `${styles.sidebar} ${styles.open}` : styles.sidebar
             }
-          })}
-          <Link to="/autores" activeClassName={styles.active}>
-            Autores
-          </Link>
+          >
+            <nav>
+              {navItems.map((navItem, i) => {
+                if (navItem.url.match(/^\s?http(s?)/gi)) {
+                  return (
+                    <a
+                      href={navItem.url}
+                      key={i}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {navItem.label}
+                    </a>
+                  );
+                } else {
+                  return (
+                    <Link
+                      to={navItem.url}
+                      key={i}
+                      activeClassName={styles.active}
+                    >
+                      {navItem.label}
+                    </Link>
+                  );
+                }
+              })}
+              <Link to="/autores" activeClassName={styles.active}>
+                Autores
+              </Link>
+            </nav>
+            <button className={styles.closeArea} onClick={() => setOpen(false)}>
+              {null}
+            </button>
+          </div>
         </nav>
-        <button className={styles.closeArea} onClick={() => setOpen(false)}>
-          {null}
-        </button>
       </div>
-    </nav>
+    </Headroom>
   ) : (
     <nav>
       {data.map((navItem, i) => {

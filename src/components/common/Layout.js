@@ -40,18 +40,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">
-          <div className={styles.navbar}>
-            <div className="container">
-              {/* The navigation items as setup in Ghost */}
-              <Navigation
-                data={site.navigation}
-                navClass={styles.nav}
-                navbar={true}
-                open={sidebarOpen}
-                setOpen={setSidebarOpen}
-              />
-            </div>
-          </div>
+          {/* The navigation items as setup in Ghost */}
+          <Navigation
+            data={site.navigation}
+            navClass={styles.nav}
+            navbar={true}
+            open={sidebarOpen}
+            setOpen={setSidebarOpen}
+          />
           {/* The main header section on top of the screen */}
           <header
             className={styles.header}
