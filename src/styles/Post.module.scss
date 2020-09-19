@@ -22,6 +22,7 @@
     align-items: center;
     margin: 0 1rem;
     transition: all 0.25s var(--transition-bezier);
+    cursor: pointer;
 
     &:hover {
       transform: translateY(-2px);
@@ -36,8 +37,12 @@
   text-decoration: none;
   color: inherit;
 
-  &:hover > div p:first-child {
-    text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+
+    & > div p:first-child {
+      text-decoration: underline;
+    }
   }
 
   & > div {

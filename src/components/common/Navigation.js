@@ -19,8 +19,8 @@ const Navigation = ({ data, navbar = false, open, setOpen }) => {
 
   return navbar ? (
     <Headroom className={styles.headroom}>
-      <div className={`container ${styles.container}`}>
-        <nav className={styles.nav}>
+      <nav className={styles.nav}>
+        <div className={`container ${styles.container}`}>
           <button
             className={styles.toggleSidebar}
             onClick={() => setOpen((_open) => !_open)}
@@ -93,8 +93,8 @@ const Navigation = ({ data, navbar = false, open, setOpen }) => {
               {null}
             </button>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </Headroom>
   ) : (
     <nav>

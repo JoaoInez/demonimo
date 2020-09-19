@@ -42,7 +42,6 @@ const Post = ({ data, location }) => {
             <article className="content">
               <section className="post-full-content">
                 <h1 className="content-title">{post.title}</h1>
-
                 {/* The main post content */}
                 <section
                   className="content-body load-external-scripts"

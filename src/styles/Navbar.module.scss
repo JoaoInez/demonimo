@@ -1,16 +1,16 @@
 .headroom {
   background-color: #fff;
+}
+
+.nav {
+  font-size: 1.8rem;
+  padding: 20px 0;
+  background-color: #fff;
+  position: relative;
 
   .container {
-    position: relative;
-    background-color: #fff;
-  }
-
-  .nav {
     display: flex;
     align-items: center;
-    font-size: 1.8rem;
-    padding: 20px 0;
 
     a {
       margin-right: 30px;
@@ -101,8 +101,10 @@
         }
       }
     }
+  }
 
-    @media (max-width: 680px) {
+  @media (max-width: 680px) {
+    .container {
       justify-content: center;
 
       & > a {
