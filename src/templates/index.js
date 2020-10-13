@@ -26,8 +26,7 @@ const Index = ({ data, location, pageContext }) => {
       <Layout isHome={true}>
         <div className="container">
           <section className="post-feed">
-            // The tag below includes the markup for each post -
-            components/common/PostCard.js
+            {/* The tag below includes the markup for each post - components/common/PostCard.js */}
             <PostCard
               key={featuredPost.node.id}
               post={featuredPost.node}
