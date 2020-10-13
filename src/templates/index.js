@@ -27,11 +27,13 @@ const Index = ({ data, location, pageContext }) => {
         <div className="container">
           <section className="post-feed">
             {/* The tag below includes the markup for each post - components/common/PostCard.js */}
-            <PostCard
-              key={featuredPost.node.id}
-              post={featuredPost.node}
-              featured={true}
-            />
+            {featuredPost && (
+              <PostCard
+                key={featuredPost.node.id}
+                post={featuredPost.node}
+                featured={true}
+              />
+            )}
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node} />
             ))}
