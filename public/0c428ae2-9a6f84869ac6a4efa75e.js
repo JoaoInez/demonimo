@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{"X13+":function(t,n,e){"use strict";e.d(n,"a",(function(){return d}));var a=e("Lnxd"),d=function(t){return Object(a.a)({tag:"svg",attr:{viewBox:"0 0 16 16"},child:[{tag:"path",attr:{fillRule:"evenodd",d:"M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z",clipRule:"evenodd"}}]})(t)};d.displayName="BsDot"}}]);
+//# sourceMappingURL=0c428ae2-9a6f84869ac6a4efa75e.js.map

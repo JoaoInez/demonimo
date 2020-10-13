@@ -14,7 +14,11 @@ import { MetaData } from "../components/common/meta";
  *
  */
 const Index = ({ data, location, pageContext }) => {
-  const posts = data.allGhostPost.edges;
+  const allPosts = data.allGhostPost.edges;
+  const featuredPost = allPosts.find(({ node }) => node.featured);
+  const posts = allPosts.filter(
+    (post) => post.node.id !== featuredPost.node.id
+  );
 
   return (
     <>
@@ -22,8 +26,14 @@ const Index = ({ data, location, pageContext }) => {
       <Layout isHome={true}>
         <div className="container">
           <section className="post-feed">
+            // The tag below includes the markup for each post -
+            components/common/PostCard.js
+            <PostCard
+              key={featuredPost.node.id}
+              post={featuredPost.node}
+              featured={true}
+            />
             {posts.map(({ node }) => (
-              // The tag below includes the markup for each post - components/common/PostCard.js
               <PostCard key={node.id} post={node} />
             ))}
           </section>

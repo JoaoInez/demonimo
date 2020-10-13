@@ -7,13 +7,13 @@ import { BsDot } from "react-icons/bs";
 import howLongSince from "../../utils/howLongSince";
 import styles from "../../styles/PostCard.module.scss";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, featured }) => {
   const url = `/${post.slug}/`;
   const posted = howLongSince(post.published_at);
 
   return (
     <article
-      className={styles.card}
+      className={`${styles.card} ${featured && "featured"}`}
       style={
         post.feature_image && {
           backgroundImage: `url(${post.feature_image})`,
@@ -83,6 +83,7 @@ PostCard.propTypes = {
     }).isRequired,
     published_at: PropTypes.string.isRequired,
   }).isRequired,
+  featured: PropTypes.bool,
 };
 
 export default PostCard;
