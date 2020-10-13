@@ -16,9 +16,9 @@ import { MetaData } from "../components/common/meta";
 const Index = ({ data, location, pageContext }) => {
   const allPosts = data.allGhostPost.edges;
   const featuredPost = allPosts.find(({ node }) => node.featured);
-  const posts = allPosts.filter(
-    (post) => post.node.id !== featuredPost.node.id
-  );
+  const posts = featuredPost
+    ? allPosts.filter((post) => post.node.id !== featuredPost.node.id)
+    : allPosts;
 
   return (
     <>
