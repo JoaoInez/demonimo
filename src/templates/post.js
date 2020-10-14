@@ -99,8 +99,8 @@ const Post = ({ data, location }) => {
             <div className="container">
               <h2 className={styles.hookTitle}>Mais uma estória?</h2>
               <div className={styles.hookContainer}>
-                {data.next && <PostCard post={data.next} />}
                 {data.prev && <PostCard post={data.prev} />}
+                {data.next && <PostCard post={data.next} />}
               </div>
             </div>
           </section>
