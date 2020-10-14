@@ -13,7 +13,7 @@ const PostCard = ({ post, featured }) => {
 
   return (
     <article
-      className={`${styles.card} ${featured && "featured"}`}
+      className={`${styles.card} ${featured ? "featured" : ""}`}
       style={
         post.feature_image && {
           backgroundImage: `url(${post.feature_image})`,

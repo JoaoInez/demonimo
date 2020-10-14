@@ -19,6 +19,11 @@ const Page = ({ data, location }) => {
     <>
       <MetaData data={data} location={location} type="website" />
       <Helmet>
+        {page.codeinjection_foot && (
+          <script async>
+            {page.codeinjection_foot.replaceAll(/<.*script.*>/g, "")}
+          </script>
+        )}
         <style type="text/css">{`${page.codeinjection_styles}`}</style>
       </Helmet>
       <Layout>
@@ -41,7 +46,8 @@ const Page = ({ data, location }) => {
 Page.propTypes = {
   data: PropTypes.shape({
     ghostPage: PropTypes.shape({
-      codeinjection_styles: PropTypes.object,
+      codeinjection_styles: PropTypes.string,
+      codeinjection_foot: PropTypes.string,
       title: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,

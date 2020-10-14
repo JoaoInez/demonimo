@@ -15,7 +15,10 @@ import { MetaData } from "../components/common/meta";
  */
 const Index = ({ data, location, pageContext }) => {
   const allPosts = data.allGhostPost.edges;
-  const featuredPost = allPosts.find(({ node }) => node.featured);
+  const featuredPost =
+    pageContext.pageNumber === 0
+      ? allPosts.find(({ node }) => node.featured)
+      : null;
   const posts = featuredPost
     ? allPosts.filter((post) => post.node.id !== featuredPost.node.id)
     : allPosts;
@@ -62,7 +65,6 @@ export default Index;
 export const pageQuery = graphql`
   query GhostPostQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
-      filter: { authors: { elemMatch: { slug: { ne: "data-schema-author" } } } }
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
       skip: $skip

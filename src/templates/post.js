@@ -7,6 +7,7 @@ import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 import { Layout } from "../components/common";
 import { MetaData } from "../components/common/meta";
+import PostCard from "../components/common/PostCard";
 import styles from "../styles/Post.module.scss";
 
 /**
@@ -16,13 +17,18 @@ import styles from "../styles/Post.module.scss";
  *
  */
 const Post = ({ data, location }) => {
-  const post = data.ghostPost;
+  const post = data.post;
   const url = location.href;
 
   return (
     <>
       <MetaData data={data} location={location} type="article" />
       <Helmet>
+        {post.codeinjection_foot && (
+          <script async>
+            {post.codeinjection_foot.replaceAll(/<.*script.*>/g, "")}
+          </script>
+        )}
         <style type="text/css">{`${post.codeinjection_styles}`}</style>
       </Helmet>
       <Layout bodyClass={styles.main}>
@@ -88,6 +94,17 @@ const Post = ({ data, location }) => {
             </div>
           </div>
         </Link>
+        {(data.prev || data.next) && (
+          <section className={styles.hookPost}>
+            <div className="container">
+              <h2 className={styles.hookTitle}>Mais uma estória?</h2>
+              <div className={styles.hookContainer}>
+                {data.next && <PostCard post={data.next} />}
+                {data.prev && <PostCard post={data.prev} />}
+              </div>
+            </div>
+          </section>
+        )}
       </Layout>
     </>
   );
@@ -95,8 +112,9 @@ const Post = ({ data, location }) => {
 
 Post.propTypes = {
   data: PropTypes.shape({
-    ghostPost: PropTypes.shape({
+    post: PropTypes.shape({
       codeinjection_styles: PropTypes.string,
+      codeinjection_foot: PropTypes.string,
       title: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
@@ -108,14 +126,22 @@ Post.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
+  prev: PropTypes.object,
+  next: PropTypes.object,
   location: PropTypes.object.isRequired,
 };
 
 export default Post;
 
 export const postQuery = graphql`
-  query($slug: String!) {
-    ghostPost(slug: { eq: $slug }) {
+  query($slug: String!, $prev: String, $next: String) {
+    post: ghostPost(slug: { eq: $slug }) {
+      ...GhostPostFields
+    }
+    prev: ghostPost(slug: { eq: $prev }) {
+      ...GhostPostFields
+    }
+    next: ghostPost(slug: { eq: $next }) {
       ...GhostPostFields
     }
   }

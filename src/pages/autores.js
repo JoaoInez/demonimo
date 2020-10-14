@@ -11,7 +11,7 @@ const Autores = ({ data, location }) => {
 
   return (
     <>
-      <MetaData location={location} />
+      <MetaData location={location} title="Autores" />
       <Layout bodyClass={styles.main}>
         <section className={styles.content}>
           <div className="container">
@@ -43,9 +43,7 @@ export default Autores;
 // TODO: make a fragment for this
 export const pageQuery = graphql`
   query GhostAuthorsQuery {
-    allGhostAuthor(
-      filter: { slug: { ne: "data-schema-author" }, postCount: { gt: 0 } }
-    ) {
+    allGhostAuthor(filter: { postCount: { gt: 0 } }) {
       edges {
         node {
           id

@@ -78,6 +78,61 @@
   }
 }
 
+.hookPost {
+  margin: 4vw 0;
+  width: 100%;
+
+  .hookTitle {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .hookContainer {
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+
+    article {
+      height: 300px;
+      margin: 15px;
+
+      flex-basis: 500px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      scroll-snap-align: center;
+    }
+  }
+}
+
+@media (max-width: 1220px) {
+  .hookPost .hookContainer article {
+    flex-basis: 400px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 920px) {
+  .hookPost .hookContainer article {
+    flex-basis: 300px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 690px) {
+  .hookPost .hookContainer {
+    justify-content: initial;
+    flex-direction: row-reverse;
+
+    article {
+      flex-basis: 300px;
+      height: 200px;
+      margin: 8px;
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .parallax .featureImage {
     height: 50vh;
