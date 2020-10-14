@@ -94,9 +94,8 @@
     flex-direction: row-reverse;
 
     article {
-      height: 280px;
+      height: 300px;
       margin: 15px;
-
       flex-basis: 500px;
       flex-shrink: 0;
       flex-grow: 0;
@@ -130,7 +129,7 @@
 
     article {
       scroll-snap-align: center;
-      flex-basis: 300px;
+      flex-basis: 280px;
       height: 200px;
       margin: 8px;
     }
