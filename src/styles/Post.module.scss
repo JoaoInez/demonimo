@@ -90,8 +90,6 @@
   .hookContainer {
     display: flex;
     justify-content: center;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
     width: 100%;
 
     article {
@@ -101,7 +99,6 @@
       flex-basis: 500px;
       flex-shrink: 0;
       flex-grow: 0;
-      scroll-snap-align: center;
     }
   }
 }
@@ -122,10 +119,13 @@
 
 @media (max-width: 690px) {
   .hookPost .hookContainer {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
     justify-content: initial;
     flex-direction: row-reverse;
 
     article {
+      scroll-snap-align: center;
       flex-basis: 300px;
       height: 200px;
       margin: 8px;
