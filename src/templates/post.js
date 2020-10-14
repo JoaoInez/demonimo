@@ -26,7 +26,7 @@ const Post = ({ data, location }) => {
       <Helmet>
         {post.codeinjection_foot && (
           <script async>
-            {post.codeinjection_foot.replaceAll(/<.*script.*>/g, "")}
+            {post.codeinjection_foot.replace(/<.*script.*>/g, "")}
           </script>
         )}
         <style type="text/css">{`${post.codeinjection_styles}`}</style>

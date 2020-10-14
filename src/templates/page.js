@@ -21,7 +21,7 @@ const Page = ({ data, location }) => {
       <Helmet>
         {page.codeinjection_foot && (
           <script async>
-            {page.codeinjection_foot.replaceAll(/<.*script.*>/g, "")}
+            {page.codeinjection_foot.replace(/<.*script.*>/g, "")}
           </script>
         )}
         <style type="text/css">{`${page.codeinjection_styles}`}</style>
