@@ -98,7 +98,11 @@ const Post = ({ data, location }) => {
           <section className={styles.hookPost}>
             <div className="container">
               <h2 className={styles.hookTitle}>Mais uma estória?</h2>
-              <div className={styles.hookContainer}>
+              <div
+                className={`${styles.hookContainer} ${
+                  data.prev && data.next ? "" : styles.centered
+                }`}
+              >
                 {data.prev && <PostCard post={data.prev} />}
                 {data.next && <PostCard post={data.next} />}
               </div>
