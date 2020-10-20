@@ -33,10 +33,19 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
   return (
     <>
       <Helmet>
-        <html lang={site.lang} style={sidebarOpen ? "overflow:hidden;" : ""} />
+        <html lang={site.lang} className={sidebarOpen ? "frozen" : ""} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
-        <body className={bodyClass} />
-        {sidebarOpen && <body style="overflow:hidden;" />}
+        <body
+          className={
+            sidebarOpen && bodyClass
+              ? `frozen ${bodyClass}`
+              : sidebarOpen && !bodyClass
+              ? "frozen"
+              : !sidebarOpen && bodyClass
+              ? bodyClass
+              : ""
+          }
+        />
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">
