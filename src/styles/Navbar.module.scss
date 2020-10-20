@@ -80,7 +80,7 @@
         background-color: #fff;
         width: 60vw;
         height: 100vh;
-        padding: 64px 4vw 4rem;
+        padding: 64px 4vw 0;
         box-shadow: var(--shadow-normal);
 
         a {
@@ -95,9 +95,12 @@
         .socialMedia {
           display: block;
           margin-top: auto;
-          width: 100%;
+          width: 60vw;
           display: flex;
           justify-content: center;
+          position: absolute;
+          bottom: 4rem;
+          left: 0;
 
           a {
             color: var(--color-base);
