@@ -52,6 +52,18 @@
       }
     }
 
+    .socialMedia {
+      margin-left: auto;
+
+      a {
+        color: var(--color-base);
+
+        &:hover {
+          opacity: 80%;
+        }
+      }
+    }
+
     .sidebar {
       position: absolute;
       left: -100vw;
@@ -72,7 +84,7 @@
         background-color: #fff;
         width: 60vw;
         height: 100vh;
-        padding: 64px 4vw 4vw;
+        padding: 64px 4vw 4rem;
         box-shadow: var(--shadow-normal);
 
         a {
@@ -81,6 +93,23 @@
 
           &.active {
             color: var(--color-primary);
+          }
+        }
+
+        .socialMedia {
+          display: block;
+          margin-top: auto;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          a {
+            color: var(--color-base);
+            margin: 0 15px;
+
+            &:hover {
+              opacity: 80%;
+            }
           }
         }
       }

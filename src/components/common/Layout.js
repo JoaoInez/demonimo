@@ -33,10 +33,10 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
   return (
     <>
       <Helmet>
-        <html lang={site.lang} />
+        <html lang={site.lang} style={sidebarOpen ? "overflow:hidden;" : ""} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
         <body className={bodyClass} />
-        {sidebarOpen && <body style={{ position: "fixed", width: "100%" }} />}
+        {sidebarOpen && <body style="overflow:hidden;" />}
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">
@@ -47,6 +47,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
             navbar={true}
             open={sidebarOpen}
             setOpen={setSidebarOpen}
+            twitter={twitterUrl}
+            facebook={facebookUrl}
+            instagram={instagramUrl}
           />
           {/* The main header section on top of the screen */}
           <header

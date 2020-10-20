@@ -96,7 +96,7 @@ const Post = ({ data, location }) => {
         </Link>
         {(data.prev || data.next) && (
           <section className={styles.hookPost}>
-            <div className="container">
+            <div className="container" style={{ padding: 0 }}>
               <h2 className={styles.hookTitle}>Mais uma estória?</h2>
               <div
                 className={`${styles.hookContainer} ${

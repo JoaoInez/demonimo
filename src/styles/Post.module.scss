@@ -93,6 +93,13 @@
     width: 100%;
     flex-direction: row-reverse;
 
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      padding: 0 30px;
+    }
+
     article {
       height: 300px;
       margin: 15px;
