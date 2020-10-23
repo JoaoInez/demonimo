@@ -822,17 +822,20 @@ h6 {
 .kg-bookmark-container {
   display: flex;
   min-height: 148px;
-  color: var(--color-base);
+  color: var(--color-secondary);
   font-family: var(--font-libre-baskerville);
   text-decoration: none;
   border-radius: 3px;
-  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
+  border-color: var(--color-terciary);
+  border-style: solid;
+  border-width: 2px;
+  transition: border 0.2s ease-in-out;
 }
 
 .kg-bookmark-container:hover {
-  color: var(--color-base);
+  color: var(--color-secondary);
   text-decoration: none;
-  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.09);
+  border-color: var(--color-accent);
 }
 
 .kg-bookmark-content {
