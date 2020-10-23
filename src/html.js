@@ -16,15 +16,17 @@ export default function HTML(props) {
           async=""
         ></script>
         <script
-          dangerouslySetInnerHTML={`
+          dangerouslySetInnerHTML={{
+            __html: `
 window.OneSignal = window.OneSignal || [];
 OneSignal.push(function() {
   OneSignal.init({
     appId: "0f3af1a4-029b-4cca-90fb-0969784a9b03",
   });
 });
-        `}
-        ></script>
+            `,
+          }}
+        />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
