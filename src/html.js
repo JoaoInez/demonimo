@@ -18,12 +18,12 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.OneSignal = window.OneSignal || [];
-              OneSignal.push(function() {
-                OneSignal.init({
-                  appId: "a9be398f-0b50-415a-a110-bc1a7270a89f",
-                });
-              });
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function() {
+  OneSignal.init({
+    appId: "a9be398f-0b50-415a-a110-bc1a7270a89f",
+  });
+});
             `,
           }}
         />
