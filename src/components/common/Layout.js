@@ -53,17 +53,17 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-if (!window.OneSignal) {
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "a9be398f-0b50-415a-a110-bc1a7270a89f",
-    });
-  }
-});
+              if (!window.OneSignal) {
+                window.OneSignal = window.OneSignal || [];
+                OneSignal.push(function() {
+                  OneSignal.init({
+                    appId: "a9be398f-0b50-415a-a110-bc1a7270a89f",
+                  });
+                })
+              };
             `,
           }}
-        />
+        ></script>
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">
