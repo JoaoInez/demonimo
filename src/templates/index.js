@@ -25,7 +25,10 @@ const Index = ({ data, location, pageContext }) => {
     : allPosts;
 
   useEffect(() => {
-    OneSignal.initialize(process.env.GATSBY_ONESIGNAL_ID);
+    OneSignal.initialize(process.env.GATSBY_ONESIGNAL_ID, {
+      persistNotification: true,
+      autoResubscribe: true,
+    });
   }, []);
 
   return (
