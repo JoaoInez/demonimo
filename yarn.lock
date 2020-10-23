@@ -11551,6 +11551,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-onesignal@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/react-onesignal/-/react-onesignal-1.7.0.tgz#856b3b86567d16da4e5ca1fa7f8152644948ac09"
+  integrity sha512-iPMchTzpxBpqDISDX0aTjyYS3M6gRLtK9Teb+7X6kLOkW/+alZlL3zAvadexJrg0shKGar1VRSAEuK2/NEovLQ==
+
 react-parallax@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/react-parallax/-/react-parallax-3.0.3.tgz#5550f1e81bf040b240045348cb3b039b73a735ef"
