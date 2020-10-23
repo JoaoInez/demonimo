@@ -46,11 +46,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
               : ""
           }
         />
-        <script
-          src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-          async=""
-        ></script>
-        <script src="https://demonimo.pt/onesignal.js" async=""></script>
       </Helmet>
       <div className="viewport">
         <div className="viewport-top">
