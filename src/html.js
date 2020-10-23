@@ -13,7 +13,7 @@ export default function HTML(props) {
         />
         <script
           src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-          async=""
+          async
         ></script>
         <script
           dangerouslySetInnerHTML={{
