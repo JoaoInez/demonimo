@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import OneSignal from "react-onesignal";
 
 import { Layout, PostCard, Pagination } from "../components/common";
 import { MetaData } from "../components/common/meta";
@@ -23,13 +22,6 @@ const Index = ({ data, location, pageContext }) => {
   const posts = featuredPost
     ? allPosts.filter((post) => post.node.id !== featuredPost.node.id)
     : allPosts;
-
-  useEffect(() => {
-    OneSignal.initialize(process.env.GATSBY_ONESIGNAL_ID, {
-      persistNotification: true,
-      autoResubscribe: true,
-    });
-  }, []);
 
   return (
     <>

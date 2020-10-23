@@ -57,7 +57,6 @@
     "react-headroom": "^3.0.0",
     "react-helmet": "6.1.0",
     "react-icons": "3.11.0",
-    "react-onesignal": "^1.7.0",
     "react-parallax": "^3.0.3"
   }
 }
