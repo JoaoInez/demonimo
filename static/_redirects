@@ -1,4 +1,4 @@
 # Netlify redirects file, edit with your domain
 # https://www.netlify.com/docs/redirects/
 
-/admin                              https://demonimo.herokuapp.com/ghost/#/posts
+# /admin                              https://demonimo.herokuapp.com/ghost/#/posts
