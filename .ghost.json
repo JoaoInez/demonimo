@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://demonimo.herokuapp.com",
-    "contentApiKey": "8dc8e7e5e355d7e22a2f9515b0"
+    "apiUrl": "https://admin.demonimo.pt",
+    "contentApiKey": "8ed0a063a8fc36a03403eaf042"
   },
   "production": {
-    "apiUrl": "https://demonimo.herokuapp.com",
-    "contentApiKey": "8dc8e7e5e355d7e22a2f9515b0"
+    "apiUrl": "https://admin.demonimo.pt",
+    "contentApiKey": "8ed0a063a8fc36a03403eaf042"
   }
 }
